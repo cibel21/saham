@@ -68,15 +68,18 @@ def create_candlestick_chart(df: pd.DataFrame, signals: dict, show_ma: bool = Tr
     )
     
     # ── CANDLESTICK ───────────────────────────────────────────────────────────
-    fig.add_trace(go.Candlestick(
+   import plotly.graph_objects as go
+
+fig.add_trace(
+    go.Candlestick(
         x=df.index,
-        open=df["Open"], high=df["High"], low=df["Low"], close=df["Close"],
-        name="Price",
-        increasing_line_color=COLORS["bull"],
-        decreasing_line_color=COLORS["bear"],
-        increasing_fillcolor=COLORS["bull"] + "88",
-        decreasing_fillcolor=COLORS["bear"] + "88",
-        line=dict(width=1),
+        open=df['Open'],
+        high=df['High'],
+        low=df['Low'],
+        close=df['Close'],
+        name='Candlestick',
+        increasing_line_color='#00ff88',
+        decreasing_line_color='#ff4444'
     ), row=1, col=1)
     
     # ── BOLLINGER BANDS ───────────────────────────────────────────────────────
